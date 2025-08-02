@@ -1,4 +1,4 @@
-package com.cannotspawnshop.app
+package com.anonymous.CannotPawnshop
 
 import android.app.Application
 import android.content.res.Configuration
