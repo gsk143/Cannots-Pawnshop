@@ -3,19 +3,16 @@ if (__DEV__) {
 }
 
 import RootNavigation from "@/navigation/RootNavigator";
-import { storage } from "@/storage/MMKV";
+import StoreProvider from "@/store/StoreProvider";
 import { NavigationContainer } from "@react-navigation/native";
-import React, { useEffect } from "react";
+import React from "react";
 
 export default function App() {
-  useEffect(() => {
-    storage.set("user.name", "Marc");
-    storage.set("user.age", 21);
-    storage.set("is-mmkv-fast-asf", true);
-  }, []);
   return (
     <NavigationContainer>
-      <RootNavigation isLoggedIn={false} />
+      <StoreProvider>
+        <RootNavigation isLoggedIn={true} />
+      </StoreProvider>
     </NavigationContainer>
   );
 }
